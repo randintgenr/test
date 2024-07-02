@@ -139,9 +139,17 @@ if __name__ == "__main__":
     )
 
     # Schedule 2 workers for DDP training (1 GPU/worker by default)
-    scaling_config = ScalingConfig(num_workers=1, use_gpu=True)
-
-    trainer = TorchTrainer(
+    # scaling_config = ScalingConfig(num_workers=1, use_gpu=True)
+    scaling_config = ScalingConfig(
+        # Number of distributed workers.
+        num_workers=1,
+        # Turn on/off GPU.
+        use_gpu=False,
+        # Specify resources used for trainer.
+        trainer_resources={"CPU": 1},
+        # Try to schedule workers on different nodes.
+    )
+        trainer = TorchTrainer(
         train_loop_per_worker=train_func,
         train_loop_config=train_func_config,
         scaling_config=scaling_config,

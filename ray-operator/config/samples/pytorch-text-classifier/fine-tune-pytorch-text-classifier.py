@@ -149,7 +149,7 @@ if __name__ == "__main__":
         trainer_resources={"CPU": 1},
         # Try to schedule workers on different nodes.
     )
-        trainer = TorchTrainer(
+    trainer = TorchTrainer(
         train_loop_per_worker=train_func,
         train_loop_config=train_func_config,
         scaling_config=scaling_config,

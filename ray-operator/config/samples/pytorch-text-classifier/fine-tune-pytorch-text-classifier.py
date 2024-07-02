@@ -142,11 +142,11 @@ if __name__ == "__main__":
     # scaling_config = ScalingConfig(num_workers=1, use_gpu=True)
     scaling_config = ScalingConfig(
         # Number of distributed workers.
-        num_workers=1,
+        num_workers=3,
         # Turn on/off GPU.
         use_gpu=False,
         # Specify resources used for trainer.
-        trainer_resources={"CPU": 1},
+        trainer_resources={"CPU": 1, "GPU": 0},
         # Try to schedule workers on different nodes.
     )
     trainer = TorchTrainer(

@@ -137,12 +137,12 @@ if __name__ == "__main__":
             checkpoint_score_order="max",
         ),
     )
-
+    
     # Schedule 2 workers for DDP training (1 GPU/worker by default)
     # scaling_config = ScalingConfig(num_workers=1, use_gpu=True)
     scaling_config = ScalingConfig(
         # Number of distributed workers.
-        num_workers=3,
+        num_workers=1,
         # Turn on/off GPU.
         use_gpu=False,
         # Specify resources used for trainer.
